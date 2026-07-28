@@ -9,6 +9,6 @@
   </Folder>
   <Folder Name="/Dashboard/3.EndPoints/">
     <Project Path="Dashboard/3.EndPoints/Dashboard.WebApi/Dashboard.WebApi.csproj" Id="89a1fca5-20df-4200-b7d1-0edaaeb97144" />
-    <Project Path="Dashboard/3.EndPoints/Dashboard.WebApp/Dashboard.WebApp.csproj" Id="80311aaf-e529-45bf-8052-abcffefd6afc" />
+    <Project Path="Dashboard/3.EndPoints/Dashboard.WebApp/Dashboard.WebApp.csproj" />
   </Folder>
 </Solution>

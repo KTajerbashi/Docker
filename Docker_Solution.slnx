@@ -11,4 +11,7 @@
     <Project Path="Dashboard/3.EndPoints/Dashboard.WebApi/Dashboard.WebApi.csproj" Id="89a1fca5-20df-4200-b7d1-0edaaeb97144" />
     <Project Path="Dashboard/3.EndPoints/Dashboard.WebApp/Dashboard.WebApp.csproj" />
   </Folder>
+  <Folder Name="/Profile/">
+    <Project Path="Profile/RazorAppProfile/RazorAppProfile.csproj" Id="43f81c9a-5e45-46e4-89e8-1b59a73000d7" />
+  </Folder>
 </Solution>

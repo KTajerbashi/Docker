@@ -1,0 +1,165 @@
+﻿@page
+@model RazorAppProfile.Pages.ClientsModel
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<div class="app-container">
+    <div class="app-content">
+
+        <div class="page-heading">
+            <div>
+                <h1 class="h4 mb-0">Clients</h1>
+                <p class="text-muted mb-0 small">@Model.Clients.Count total clients</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 providers-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Industry</th>
+                            <th>Location</th>
+                            <th>Tier</th>
+                            <th>Status</th>
+                            <th class="text-end">Annual Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var client in Model.Clients)
+                        {
+                            <tr class="provider-row"
+                                role="button"
+                                tabindex="0"
+                                data-bs-toggle="modal"
+                                data-bs-target="#clientDetailModal"
+                                data-id="@client.Id"
+                                data-name="@client.Name"
+                                data-industry="@client.Industry"
+                                data-location="@client.Location"
+                                data-tier="@client.Tier"
+                                data-status="@client.Status"
+                                data-contact="@client.ContactName"
+                                data-email="@client.Email"
+                                data-phone="@client.Phone"
+                                data-onboarded="@client.OnboardedOn.ToString("MMM d, yyyy")"
+                                data-value="@client.AnnualContractValue.ToString("C0")">
+                                <td class="fw-semibold">@client.Name</td>
+                                <td>@client.Industry</td>
+                                <td>@client.Location</td>
+                                <td>
+                                    <span class="tier-badge tier-badge--@client.Tier.ToString().ToLowerInvariant()">
+                                        @client.Tier
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-badge--@client.Status.ToString().ToLowerInvariant()">
+                                        @client.Status
+                                    </span>
+                                </td>
+                                <td class="text-end">@client.AnnualContractValue.ToString("C0")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Client Detail Modal -->
+<div class="modal fade" id="clientDetailModal" tabindex="-1" aria-labelledby="clientDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="clientDetailModalLabel">Client Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <dl class="info-list">
+                    <div class="info-row">
+                        <dt>Name</dt>
+                        <dd id="cd-name"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Industry</dt>
+                        <dd id="cd-industry"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Location</dt>
+                        <dd id="cd-location"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Tier</dt>
+                        <dd id="cd-tier"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Status</dt>
+                        <dd id="cd-status"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Contact</dt>
+                        <dd id="cd-contact"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Email</dt>
+                        <dd id="cd-email"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Phone</dt>
+                        <dd id="cd-phone"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Onboarded</dt>
+                        <dd id="cd-onboarded"></dd>
+                    </div>
+                    <div class="info-row">
+                        <dt>Annual Contract Value</dt>
+                        <dd id="cd-value"></dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+
+            const modalEl = document.getElementById('clientDetailModal');
+            if (!modalEl) return;
+
+            modalEl.addEventListener('show.bs.modal', function (event) {
+                const row = event.relatedTarget;
+                if (!row) return;
+
+                const fields = ['name', 'industry', 'location', 'tier', 'status', 'contact', 'email', 'phone', 'onboarded', 'value'];
+                fields.forEach(function (field) {
+                    const target = document.getElementById('cd-' + field);
+                    if (target) {
+                        target.textContent = row.dataset[field] ?? '—';
+                    }
+                });
+            });
+
+            document.querySelectorAll('#clientDetailModal').forEach(function () {
+                document.querySelectorAll('.provider-row[data-bs-target="#clientDetailModal"]').forEach(function (row) {
+                    row.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            row.click();
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+}

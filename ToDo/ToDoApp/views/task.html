@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="/css/task.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>سیستم مدیریت تسک</h1>
+
+        <button id="btnOpen">
+            + ایجاد تسک
+        </button>
+
+    </header>
+
+    <!-- Dashboard -->
+
+    <section class="dashboard">
+
+        <div class="card registered">
+            <h3>ثبت شده</h3>
+            <span id="registeredCount">0</span>
+        </div>
+
+        <div class="card progress">
+            <h3>درحال انجام</h3>
+            <span id="progressCount">0</span>
+        </div>
+
+        <div class="card done">
+            <h3>انجام شده</h3>
+            <span id="doneCount">0</span>
+        </div>
+
+        <div class="card approved">
+            <h3>تایید شده</h3>
+            <span id="approvedCount">0</span>
+        </div>
+
+        <div class="card finished">
+            <h3>پایان یافته</h3>
+            <span id="finishedCount">0</span>
+        </div>
+
+        <div class="card rejected">
+            <h3>برگشت خورده</h3>
+            <span id="rejectedCount">0</span>
+        </div>
+
+    </section>
+
+    <!-- Search -->
+
+    <section class="toolbar">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="جستجوی عنوان..."
+        >
+
+        <select id="filterStatus">
+
+            <option value="">همه وضعیت ها</option>
+
+            <option>ثبت شده</option>
+
+            <option>درحال انجام</option>
+
+            <option>انجام شده</option>
+
+            <option>تایید شده</option>
+
+            <option>پایان یافته</option>
+
+            <option>برگشت خورده</option>
+
+        </select>
+
+    </section>
+
+    <!-- Table -->
+
+    <section class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>عنوان</th>
+
+                    <th>مسئول</th>
+
+                    <th>اولویت</th>
+
+                    <th>شروع</th>
+
+                    <th>پایان</th>
+
+                    <th>وضعیت</th>
+
+                    <th>عملیات</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="taskTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- Modal -->
+
+    <div class="modal" id="taskModal">
+
+        <div class="modal-content">
+
+            <h2>ثبت تسک</h2>
+
+            <input
+                id="title"
+                type="text"
+                placeholder="عنوان"
+            >
+
+            <textarea
+                id="description"
+                placeholder="توضیحات"
+            ></textarea>
+
+            <input
+                id="assignee"
+                type="text"
+                placeholder="مسئول"
+            >
+
+            <select id="priority">
+
+                <option>کم</option>
+
+                <option>متوسط</option>
+
+                <option>زیاد</option>
+
+            </select>
+
+            <input
+                id="startDate"
+                type="date"
+            >
+
+            <input
+                id="endDate"
+                type="date"
+            >
+
+            <select id="status">
+
+                <option>ثبت شده</option>
+
+                <option>درحال انجام</option>
+
+                <option>انجام شده</option>
+
+                <option>تایید شده</option>
+
+                <option>پایان یافته</option>
+
+                <option>برگشت خورده</option>
+
+            </select>
+
+            <div class="buttons">
+
+                <button id="saveTask">
+                    ذخیره
+                </button>
+
+                <button id="closeModal">
+                    بستن
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/task.js"></script>
+
+</body>
+
+</html>

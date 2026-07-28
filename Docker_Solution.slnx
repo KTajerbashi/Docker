@@ -14,4 +14,5 @@
   <Folder Name="/Profile/">
     <Project Path="Profile/RazorAppProfile/RazorAppProfile.csproj" Id="43f81c9a-5e45-46e4-89e8-1b59a73000d7" />
   </Folder>
+  <Folder Name="/ToDo/" />
 </Solution>

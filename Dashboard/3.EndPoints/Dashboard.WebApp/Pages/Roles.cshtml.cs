@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Dashboard.WebApp.Pages
 {
-    public class OrganizationModel : PageModel
+    public class RolesModel : PageModel
     {
         public void OnGet()
         {

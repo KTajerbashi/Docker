@@ -15,6 +15,14 @@
         </div>
 
         <div class="panel">
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#createModal">
+                    Add Client
+                </button>
+
+            </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0 providers-table">
                     <thead>
@@ -24,6 +32,7 @@
                             <th>Location</th>
                             <th>Tier</th>
                             <th>Status</th>
+                            <th class="text-end">Annual Value</th>
                             <th class="text-end">Annual Value</th>
                         </tr>
                     </thead>
@@ -60,6 +69,16 @@
                                     </span>
                                 </td>
                                 <td class="text-end">@client.AnnualContractValue.ToString("C0")</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning edit-btn"
+                                            data-id="@client.Id">
+                                        Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-danger delete-btn"
+                                            data-id="@client.Id">
+                                        Delete
+                                    </button>
+                                </td>
                             </tr>
                         }
                     </tbody>

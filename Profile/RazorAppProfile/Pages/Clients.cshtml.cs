@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorAppProfile.Services;
 
@@ -5,35 +6,81 @@ namespace RazorAppProfile.Pages;
 
 public sealed class ClientsModel : PageModel
 {
-    public IReadOnlyList<ClientRowDto> Clients { get; private set; } = [];
+    private static readonly List<ClientRowDto> _clients =
+    [
+        new(1,"Globex Corporation","Manufacturing","Detroit, MI",
+            ClientStatus.Active,ClientTier.Enterprise,
+            "Robert Hale","robert.hale@globex.com","+1 (313) 555-0110",
+            new DateOnly(2021,6,1),128500),
+
+        new(2,"Initech Solutions","Software","San Jose, CA",
+            ClientStatus.Active,ClientTier.Growth,
+            "Amanda Cole","amanda.cole@initech.com","+1 (408) 555-0157",
+            new DateOnly(2022,9,15),42000)
+    ];
+
+    public IReadOnlyList<ClientRowDto> Clients => _clients;
+
+    [BindProperty]
+    public ClientInputModel Input { get; set; } = new();
 
     public void OnGet()
     {
-        // TODO: Replace with IClientQueryService.GetAllAsync() once Infrastructure is wired up.
-        Clients = GetFakeClients();
+
     }
 
-    private static IReadOnlyList<ClientRowDto> GetFakeClients() =>
-    [
-        new(1, "Globex Corporation", "Manufacturing", "Detroit, MI", ClientStatus.Active, ClientTier.Enterprise,
-            "Robert Hale", "robert.hale@globex.com", "+1 (313) 555-0110",
-            new DateOnly(2021, 6, 1), 128_500m),
+    public IActionResult OnPostCreate()
+    {
+        var id = _clients.Max(x => x.Id) + 1;
 
-        new(2, "Initech Solutions", "Software", "San Jose, CA", ClientStatus.Active, ClientTier.Growth,
-            "Amanda Cole", "amanda.cole@initech.com", "+1 (408) 555-0157",
-            new DateOnly(2022, 9, 15), 42_000m),
+        _clients.Add(new ClientRowDto(
+            id,
+            Input.Name,
+            Input.Industry,
+            Input.Location,
+            Input.Status,
+            Input.Tier,
+            Input.ContactName,
+            Input.Email,
+            Input.Phone,
+            Input.OnboardedOn,
+            Input.AnnualContractValue));
 
-        new(3, "Umbrella Retail Group", "Retail", "Miami, FL", ClientStatus.PendingRenewal, ClientTier.Enterprise,
-            "Carlos Vega", "carlos.vega@umbrellaretail.com", "+1 (305) 555-0184",
-            new DateOnly(2020, 2, 10), 210_000m),
+        return RedirectToPage();
+    }
 
-        new(4, "Wayne Logistics", "Transportation", "Gotham, NJ", ClientStatus.OnHold, ClientTier.Growth,
-            "Lucia Ferrer", "lucia.ferrer@waynelogistics.com", "+1 (973) 555-0129",
-            new DateOnly(2023, 4, 22), 18_750m),
+    public IActionResult OnPostEdit(int id)
+    {
+        var client = _clients.FirstOrDefault(x => x.Id == id);
 
-        new(5, "Stark Analytics", "Technology", "Palo Alto, CA", ClientStatus.Active, ClientTier.Startup,
-            "Noah Brenner", "noah.brenner@starkanalytics.com", "+1 (650) 555-0163",
-            new DateOnly(2024, 3, 3), 6_200m),
-    ];
+        if (client == null)
+            return NotFound();
+
+        _clients.Remove(client);
+
+        _clients.Add(new ClientRowDto(
+            id,
+            Input.Name,
+            Input.Industry,
+            Input.Location,
+            Input.Status,
+            Input.Tier,
+            Input.ContactName,
+            Input.Email,
+            Input.Phone,
+            Input.OnboardedOn,
+            Input.AnnualContractValue));
+
+        return RedirectToPage();
+    }
+
+    public IActionResult OnPostDelete(int id)
+    {
+        var client = _clients.FirstOrDefault(x => x.Id == id);
+
+        if (client != null)
+            _clients.Remove(client);
+
+        return RedirectToPage();
+    }
 }
-

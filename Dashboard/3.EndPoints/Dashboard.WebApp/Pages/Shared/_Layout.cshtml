@@ -1,52 +1,101 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dashboard.WebApp</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
+    <title>
+        @(ViewData["Title"] != null
+            ? $"{ViewData["Title"]} |  Dashboard"
+            : "Dashboard")
+    </title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+    <!-- Razor CSS Isolation -->
     <link rel="stylesheet" href="~/Dashboard.WebApp.styles.css" asp-append-version="true" />
+
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Dashboard.WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+            <div class="logo">
+                <h3>Dashboard</h3>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            <ul>
+                <li>
+                    <a asp-page="/Index">
+                        <i class="bi bi-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Users">
+                        <i class="bi bi-people"></i>
+                        Users
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Organizations">
+                        <i class="bi bi-building"></i>
+                        Organizations
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Roles">
+                        <i class="bi bi-diagram-3"></i>
+                        Roles
+                    </a>
+                </li>
+                <li>
+                    <a asp-page="/Settings">
+                        <i class="bi bi-gear"></i>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="topbar">
+                <div>
+                    <input class="search"
+                           placeholder="Search..." />
+                </div>
+                <div class="profile">
+                    <span>Administrator</span>
+                    <img src="https://i.pravatar.cc/100"
+                         alt="Profile" />
+                </div>
+            </nav>
+            <main class="content">
+                @RenderBody()
+            </main>
+        </div>
+
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Dashboard.WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"></script>
+
+    @await RenderSectionAsync("Scripts", false)
+
 </body>
+
 </html>

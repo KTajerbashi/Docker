@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/Back-End/" />
-  <Folder Name="/Back-End/1.WebApi/" />
+  <Folder Name="/Back-End/1.WebApi/">
+    <Project Path="Back-End/1.WebApi/Dockerize.WebApi/Dockerize.WebApi.csproj" Id="93417243-b58b-40ba-a829-cf0b49649ce6" />
+  </Folder>
   <Folder Name="/Front-End/" />
   <Folder Name="/Front-End/1.AngularClient/" />
   <Folder Name="/Front-End/2.ReactClient/" />

@@ -1,9 +1,0 @@
-**/bin
-**/obj
-**/.vs
-**/node_modules
-**/.git
-Dockerfile*
-docker-compose*
-**/*.user
-**/*.md

@@ -3,13 +3,15 @@
   <Folder Name="/Back-End/1.WebApi/">
     <Project Path="Back-End/1.WebApi/Dockerize.WebApi/Dockerize.WebApi.csproj" Id="93417243-b58b-40ba-a829-cf0b49649ce6" />
   </Folder>
+  <Folder Name="/Back-End/2.RazorApp/">
+    <Project Path="Back-End/2.RazorApp/Dockerize.RazorApp/Dockerize.RazorApp.csproj" Id="1506c913-57f7-48cc-a743-054d07c7c569" />
+  </Folder>
   <Folder Name="/Front-End/" />
   <Folder Name="/Front-End/1.AngularClient/" />
   <Folder Name="/Front-End/2.ReactClient/" />
   <Folder Name="/Front-End/3.BlazorClient/">
     <Project Path="Front-End/3.BlazorClient/BlazorClientApp.csproj" />
   </Folder>
-  <Folder Name="/Front-End/4.RazorClient/" />
   <Folder Name="/Full-Stack/" />
   <Folder Name="/Full-Stack/1.Monolithic-Arch/" />
   <Folder Name="/Full-Stack/2.Layered-Arch/" />

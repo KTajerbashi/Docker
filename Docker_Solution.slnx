@@ -17,7 +17,28 @@
     <Project Path="Full-Stack/1.Monolithic-Arch/Dockerize.MonoArch.Utils/Dockerize.MonoArch.Utils.csproj" Id="9b86a259-d916-4ee6-a8d8-1c2c72e54d3b" />
     <Project Path="Full-Stack/1.Monolithic-Arch/Dockerize.MonoArch/Dockerize.MonoArch.csproj" Id="07a5cbe4-563b-4a4e-bad3-a93c958bd126" />
   </Folder>
-  <Folder Name="/Full-Stack/2.Layered-Arch/" />
-  <Folder Name="/Full-Stack/3.Clean-Arch/" />
+  <Folder Name="/Full-Stack/2.Layered-Arch/">
+    <Project Path="Full-Stack/2.Layered-Arch/Dockerize.Layered.Data/Dockerize.Layered.Data.csproj" Id="8afd1432-abcd-4f53-bc78-c7aff19bafbd" />
+    <Project Path="Full-Stack/2.Layered-Arch/Dockerize.Layered.Presentation/Dockerize.Layered.Presentation.csproj" Id="cc72e970-7a3b-4b25-9536-82a93a83fecc" />
+    <Project Path="Full-Stack/2.Layered-Arch/Dockerize.Layered.Services/Dockerize.Layered.Services.csproj" Id="71767625-67f6-44f2-bff7-0c7be7433b4f" />
+  </Folder>
+  <Folder Name="/Full-Stack/3.Clean-Arch/">
+    <Project Path="Full-Stack/3.Clean-Arch/Dockerize.Clean.Core.Application/Dockerize.Clean.Core.Application.csproj" Id="b4c96dc7-1b3e-4bab-bac4-5fc763b2a534" />
+    <Project Path="Full-Stack/3.Clean-Arch/Dockerize.Clean.Core.Domain/Dockerize.Clean.Core.Domain.csproj" Id="9a724f09-0fa2-4be7-901c-b1eab7d877a0" />
+    <Project Path="Full-Stack/3.Clean-Arch/Dockerize.Clean.Infrastructure/Dockerize.Clean.Infrastructure.csproj" Id="283663e6-c829-4792-8987-d7d264e2cfa5" />
+    <Project Path="Full-Stack/3.Clean-Arch/Dockerize.Clean.WebApi/Dockerize.Clean.WebApi.csproj" Id="a0f568aa-64d7-498d-b682-bebd0ee45408" />
+  </Folder>
   <Folder Name="/Full-Stack/4.Microservice-Arch/" />
+  <Folder Name="/Full-Stack/4.Microservice-Arch/1.Users/">
+    <Project Path="Full-Stack/4.Microservice-Arch/1.Users/Microservice.UserApp.Utilities/Microservice.UserApp.Utilities.csproj" Id="260db3dc-ee3f-48a1-86be-12239089b9f5" />
+  </Folder>
+  <Folder Name="/Full-Stack/4.Microservice-Arch/2.Products/">
+    <Project Path="Full-Stack/4.Microservice-Arch/2.Products/Microservice.ProductApp.Utilities/Microservice.ProductApp.Utilities.csproj" Id="9ccf8acb-2f50-4c26-a727-af4ff2bc70d5" />
+  </Folder>
+  <Folder Name="/Full-Stack/4.Microservice-Arch/3.Supporting/">
+    <Project Path="Full-Stack/4.Microservice-Arch/3.Supporting/Microservice.SupportingApp.Utilities/Microservice.SupportingApp.Utilities.csproj" Id="3983b2b9-77d5-495c-9e4a-b1393a982d22" />
+  </Folder>
+  <Folder Name="/Full-Stack/4.Microservice-Arch/4.CashBanking/">
+    <Project Path="Full-Stack/4.Microservice-Arch/4.CashBanking/Microservice.CashBankingApp.Utilities/Microservice.CashBankingApp.Utilities.csproj" Id="f0dc17fe-2a19-4d8b-b6a8-feba6e9ee934" />
+  </Folder>
 </Solution>

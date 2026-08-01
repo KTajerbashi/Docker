@@ -1,18 +1,1 @@
-<Solution>
-  <Folder Name="/Dashboard/" />
-  <Folder Name="/Dashboard/1.Core/">
-    <Project Path="Dashboard/1.Core/Dashboard.Application/Dashboard.Application.csproj" Id="9e5bd753-c9af-4129-8960-4a1e783015d9" />
-    <Project Path="Dashboard/1.Core/Dashboard.Domain/Dashboard.Domain.csproj" Id="05048f1d-5845-4e48-a678-448cd8a6da1b" />
-  </Folder>
-  <Folder Name="/Dashboard/2.Infra/">
-    <Project Path="Dashboard/2.Infra/Dashboard.Infrastructure/Dashboard.Infrastructure.csproj" Id="7a3b3074-d26d-45ce-be63-434a43053f4e" />
-  </Folder>
-  <Folder Name="/Dashboard/3.EndPoints/">
-    <Project Path="Dashboard/3.EndPoints/Dashboard.WebApi/Dashboard.WebApi.csproj" Id="89a1fca5-20df-4200-b7d1-0edaaeb97144" />
-    <Project Path="Dashboard/3.EndPoints/Dashboard.WebApp/Dashboard.WebApp.csproj" />
-  </Folder>
-  <Folder Name="/Profile/">
-    <Project Path="Profile/RazorAppProfile/RazorAppProfile.csproj" Id="43f81c9a-5e45-46e4-89e8-1b59a73000d7" />
-  </Folder>
-  <Folder Name="/ToDo/" />
-</Solution>
+<Solution />

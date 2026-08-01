@@ -13,7 +13,10 @@
     <Project Path="Front-End/3.BlazorClient/BlazorClientApp.csproj" />
   </Folder>
   <Folder Name="/Full-Stack/" />
-  <Folder Name="/Full-Stack/1.Monolithic-Arch/" />
+  <Folder Name="/Full-Stack/1.Monolithic-Arch/">
+    <Project Path="Full-Stack/1.Monolithic-Arch/Dockerize.MonoArch.Utils/Dockerize.MonoArch.Utils.csproj" Id="9b86a259-d916-4ee6-a8d8-1c2c72e54d3b" />
+    <Project Path="Full-Stack/1.Monolithic-Arch/Dockerize.MonoArch/Dockerize.MonoArch.csproj" Id="07a5cbe4-563b-4a4e-bad3-a93c958bd126" />
+  </Folder>
   <Folder Name="/Full-Stack/2.Layered-Arch/" />
   <Folder Name="/Full-Stack/3.Clean-Arch/" />
   <Folder Name="/Full-Stack/4.Microservice-Arch/" />

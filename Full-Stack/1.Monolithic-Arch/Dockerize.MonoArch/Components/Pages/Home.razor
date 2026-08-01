@@ -1,0 +1,21 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<p>Welcome to your new app.</p>
+
+<button class="btn btn-outline-dark" @onclick="IncrementCount">
+    Click @count
+</button>
+
+@code {
+    private int count { get; set; }
+
+    private void IncrementCount()
+    {
+        count++;
+    }
+}

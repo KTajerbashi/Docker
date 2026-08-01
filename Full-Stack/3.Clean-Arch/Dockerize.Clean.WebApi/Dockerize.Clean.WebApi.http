@@ -1,0 +1,6 @@
+@Dockerize.Clean.WebApi_HostAddress = http://localhost:5023
+
+GET {{Dockerize.Clean.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

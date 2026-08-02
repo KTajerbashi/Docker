@@ -7,10 +7,32 @@
     <Project Path="Back-End/2.RazorApp/Dockerize.RazorApp/Dockerize.RazorApp.csproj" Id="1506c913-57f7-48cc-a743-054d07c7c569" />
   </Folder>
   <Folder Name="/Front-End/" />
-  <Folder Name="/Front-End/1.AngularClient/" />
-  <Folder Name="/Front-End/2.ReactClient/" />
-  <Folder Name="/Front-End/3.BlazorClient/">
-    <Project Path="Front-End/3.BlazorClient/BlazorClientApp.csproj" />
+  <Folder Name="/Front-End/1.AngularApp/">
+    <Project Path="Front-End/1.AngularApp/AngularApp.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/Front-End/2.ReactApp/">
+    <Project Path="Front-End/2.ReactApp/ReactApp.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/Front-End/3.BlazorApp/">
+    <Project Path="Front-End/3.BlazorApp/BlazorApp.csproj" />
+  </Folder>
+  <Folder Name="/Front-End/4.AngularProject/">
+    <Project Path="Front-End/4.AngularProject/AngularProject.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/Front-End/5.ReactProject/">
+    <Project Path="Front-End/5.ReactProject/ReactProject.esproj">
+      <Build />
+      <Deploy />
+    </Project>
   </Folder>
   <Folder Name="/Full-Stack/" />
   <Folder Name="/Full-Stack/1.Monolithic-Arch/">

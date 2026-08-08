@@ -1,0 +1,17 @@
+services:
+  webapi:
+    build:
+      context: ./Back-End/1.WebApi/Dockerize.WebApi
+      dockerfile: Dockerfile
+    container_name: dockerize-webapi
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    networks:
+      - webapi-network
+
+networks:
+  webapi-network:
+    driver: bridge

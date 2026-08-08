@@ -1,32 +1,28 @@
 # مرحله ۱: ساخت (Build)
-# از تصویر SDK کامل برای کامپایل و انتشار استفاده می‌شود
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
-# کپی فایل‌های پروژه و بازگردانی وابستگی‌ها (برای استفاده از کش Docker)
-# نام فایل پروژه WebApi خود را به‌روز کنید
-COPY ["Dockerize.WebApi/Dockerize.WebApi.csproj", "YourWebApiProject/"]
-RUN dotnet restore "Dockerize.WebApi/Dockerize.WebApi.csproj"
+# کپی فایل پروژه - مسیرها را ساده می‌کنیم چون فایل .csproj در همین پوشه است
+COPY ["Dockerize.WebApi.csproj", "."]
+RUN dotnet restore
 
-# کپی باقی کدها و انتشار برنامه
+# کپی بقیه کدها
 COPY . .
-WORKDIR "/src/Dockerize.WebApi"
 RUN dotnet publish "Dockerize.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # مرحله ۲: اجرا (Runtime)
-# از تصویر سبک‌تر ASP.NET Runtime برای اجرا استفاده می‌شود
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
 
-# استفاده از کاربر غیر ریشه (Non-root user) برای امنیت بیشتر
+# استفاده از کاربر غیر ریشه برای امنیت بیشتر
 USER app
 
-# کپی خروجی publish شده از مرحله ساخت
+# کپی خروجی publish شده
 COPY --from=build /app/publish .
 
-# پورت پیش‌فرض برنامه را مشخص می‌کند
+# پورت پیش‌فرض
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
-# تعیین نقطه ورود برای اجرای برنامه
+# نقطه ورود
 ENTRYPOINT ["dotnet", "Dockerize.WebApi.dll"]

@@ -1,7 +1,3 @@
-using Dockerize.WebApi.Controllers.Common;
-using Dockerize.WebApi.Models.Security.DTOs;
-using Microsoft.AspNetCore.Mvc;
-
 namespace Dockerize.WebApi.Controllers.Security;
 
 public class UserCotroller : AuthCotroller
@@ -30,13 +26,20 @@ public class UserCotroller : AuthCotroller
     public async Task<IActionResult> Update(int entityId, UserDTO parameter)
     {
         await Task.CompletedTask;
-        return Ok(parameter);
+        return Ok(new
+        {
+            entityId,
+            parameter,
+        });
     }
 
     [HttpDelete("{entityId}")]
     public async Task<IActionResult> Delete(int entityId)
     {
         await Task.CompletedTask;
-        return Ok(true);
+        return Ok(new
+        {
+            entityId
+        });
     }
 }

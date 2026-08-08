@@ -51,4 +51,7 @@
   <Folder Name="/Full-Stack/4.Microservice-Arch/4.CashBanking/">
     <Project Path="Full-Stack/4.Microservice-Arch/4.CashBanking/Microservice.CashBankingApp.Utilities/Microservice.CashBankingApp.Utilities.csproj" Id="f0dc17fe-2a19-4d8b-b6a8-feba6e9ee934" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
 </Solution>

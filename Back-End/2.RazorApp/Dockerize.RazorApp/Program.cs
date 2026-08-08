@@ -29,6 +29,9 @@ namespace Dockerize.RazorApp
             app.MapRazorPages()
                .WithStaticAssets();
 
+            // ✅ یک Endpoint ساده برای تست
+            app.MapGet("/app", () => "Hello from RazorApp! 🚀");
+
             app.Run();
         }
     }

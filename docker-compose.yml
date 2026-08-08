@@ -1,4 +1,5 @@
 services:
+# C:\Users\Tajer\Desktop\GitHub\Repo_KTajerbashi\Docker\Back-End\1.WebApi\Dockerize.WebApi\Dockerize.WebApi.csproj
   webapi:
     build:
       context: ./Back-End/1.WebApi/Dockerize.WebApi
@@ -11,6 +12,21 @@ services:
       - ASPNETCORE_URLS=http://+:8080
     networks:
       - webapi-network
+
+# C:\Users\Tajer\Desktop\GitHub\Repo_KTajerbashi\Docker\Back-End\2.RazorApp\Dockerize.RazorApp\Dockerize.RazorApp.csproj
+  razorapp:
+    build:
+      context: ./Back-End/2.RazorApp/Dockerize.RazorApp
+      dockerfile: Dockerfile
+    container_name: dockerize-razor-app
+    ports:
+      - "5100:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    networks:
+      - webapi-network
+
 
 networks:
   webapi-network:

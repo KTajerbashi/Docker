@@ -22,18 +22,6 @@
   <Folder Name="/Front-End/3.BlazorApp/">
     <Project Path="Front-End/3.BlazorApp/BlazorApp.csproj" />
   </Folder>
-  <Folder Name="/Front-End/4.AngularProject/">
-    <Project Path="Front-End/4.AngularProject/AngularProject.esproj">
-      <Build />
-      <Deploy />
-    </Project>
-  </Folder>
-  <Folder Name="/Front-End/5.ReactProject/">
-    <Project Path="Front-End/5.ReactProject/ReactProject.esproj">
-      <Build />
-      <Deploy />
-    </Project>
-  </Folder>
   <Folder Name="/Full-Stack/" />
   <Folder Name="/Full-Stack/1.Monolithic-Arch/">
     <Project Path="Full-Stack/1.Monolithic-Arch/Dockerize.MonoArch.Utils/Dockerize.MonoArch.Utils.csproj" Id="9b86a259-d916-4ee6-a8d8-1c2c72e54d3b" />

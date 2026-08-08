@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿namespace Dockerize.WebApi.Models.Common;
 
-namespace Dockerize.WebApi.Models.Common;
-
-public class ApiResult<T> : ObjectResult
+public class ApiResult<T>
 {
-    public ApiResult(object? value) : base(value)
+    public ApiResult(object? value)
     {
+        Data = (T)value;
     }
 
-    public int StatusCode { get; set; }
-    public string Message { get; set; }
+    public int StatusCode { get; set; } = 0;
+    public string Message { get; set; } = string.Empty;
     public T Data { get; set; }
 
 }
